@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+ <div class="jumbotron text-center">
+        <!-- <h1>My First Bootstrap Page</h1> -->
+       <h2>Movie Explorer</h2>
+       <h4>{{ title }}</h4> <br />
+
+        <h6>{{ overview }}</h6> <br />
+        <p>Genres: {{ genre}}</p> <br />
+
+        <img style="width:100%; height: 100vh; object-fit: contain;" src="{{ image_url }}" alt="Responsive image">
+        <a href="{{ wikipedia_url.url }}">Wikipedia url</a>
+
+      </div>
+{% endblock %}
