@@ -109,6 +109,7 @@ def get_data_from_tmdb(tmdb_id):
     except ConnectionError:
         logging.error('Error connecting with TMDB!')
 
+
 @app.route('/profile')  # profile page that return 'profile'
 @login_required
 def profile():
@@ -130,6 +131,5 @@ def home():
     return render_template('index.html', **movie_data)
 
 
-
 if __name__ == '__main__':
-    app.run()
+    app.run(template_folder='templates')
