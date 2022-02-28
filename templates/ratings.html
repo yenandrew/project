@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <div class="jumbotron text-center">
+        <!-- <h1>My First Bootstrap Page</h1> -->
+        <p>Once I'm signed in, the top of my page looks the same as ever, but now you can see
+          my rating/comment history, and a form with the ability to enter a rating/comment.</p>
+        <hr />
+        <div class="container">
+            <form action="/submit-rating" method="post">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                            <label for="movieId">Movie ID</label>
+                            <input type="text" class="form-control" id="movieId" name="movieId" placeholder="Movie ID">
+                    </div>
+                    <div class="form-group col-md-6">
+                            <label for="rating">Rating(out of 5)</label>
+                            <input type="number" class="form-control" id="rating" name="rating" placeholder="Rating">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="comments">Comments</label>
+                        <textarea class="form-control" rows="5" id="comments" name="comments" placeholder="add comments"></textarea>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit"  class="pull-left btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+            <br />
+            <br />
+            <h2>See what other people said!</h2>
+            {% for movie, user in data %}
+                <div>
+                    <p>User: {{ user.username }}</p>
+                </div>
+                <div>
+                    <p>Rating: {{ movie.rating }}/5</p>
+                </div>
+                <div>
+                    <p>{{ movie.comment }}</p>
+                </div>
+            {% endfor %}
+        </div>
+      </div>
+{% endblock %}

@@ -71,7 +71,26 @@ def logout():  # define the logout function
     return redirect(url_for('main.index'))
 
 
+@app.route('/submit-rating', methods=['POST'])
+@login_required
+def user_rating_submission():
+    if request.method == 'POST':
+        movie_id = request.form.get('movieId')
+        rating = request.form.get('rating')
+        comment = request.form.get('comments')
+        movie_rating_obj = MovieRating(movie_id=movie_id, comment=comment, rating=rating, user_id=current_user.id)
 
+        db.session.add(movie_rating_obj)
+        db.session.commit()
+        return redirect(url_for('movie_rating_list'))
+
+
+@app.route('/movie-ratings')
+@login_required
+def movie_rating_list():
+    data = db.session.query(MovieRating, User).join(User).all()
+    context = {"data": data}
+    return render_template('ratings.html', **context)
 
 
 def get_data_from_tmdb(tmdb_id):
