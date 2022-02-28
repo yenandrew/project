@@ -1,4 +1,6 @@
-#Movie Explorer
+# Movie Explorer
+
+
 This web app is built on flask a python web framework for microservices.
 Following are the tools and technologies used in this web app
 - TMDB API for fetching the movies 
