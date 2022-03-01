@@ -87,7 +87,7 @@ def signup():  # define the sign up function
 @login_required
 def logout():  # define the logout function
     logout_user()
-    return redirect(url_for('main.index'))
+    return redirect(url_for('login'))
 
 
 @app.route('/submit-rating', methods=['POST'])

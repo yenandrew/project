@@ -2,8 +2,13 @@
         <nav>
             <ul class="nav nav-pills">
                 <li class="nav-item"><a href="{{ url_for('signup') }}" class="nav-link {% if register %}active{% endif %}">Register</a></li>
-                <li class="nav-item"><a href="{{ url_for('login') }}" class="nav-link {% if login %}active{% endif %}">Login</a></li>
                 <li class="nav-item"><a href="{{ url_for('movie_rating_list') }}" class="nav-link {% if ratings %}active{% endif %}">Movie Ratings</a></li>
+                {% if '_user_id' in session %}
+                <li class="nav-item">
+                    <a href="{{ url_for('logout') }}" class="nav-link active">Logout</a></li>
+               {% else %}
+                    <li class="nav-item"><a href="{{ url_for('login') }}" class="nav-link {% if login %}active{% endif %}">Login</a></li>
+                {% endif %}
             </ul>
         </nav>
         <hr style="clear:both">
