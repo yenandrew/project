@@ -28,9 +28,11 @@ def get_data_from_tmdb(tmdb_id):
     except ConnectionError:
         logging.error('Error connecting with TMDB!')
 
+
 @app.route('/')
 def index():
     return jsonify('Hello World')
+
 
 @app.route('/movie')
 def home():
@@ -43,7 +45,6 @@ def home():
     movie_data = get_data_from_tmdb(tmdb_id)
     movie_data['wikipedia_url'] = wikipedia.page(title=f"{movie_data['title']}(film)", auto_suggest=True,
                                                  redirect=True, preload=False)
-
 
     return render_template('index.html', **movie_data)
 
