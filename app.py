@@ -1,13 +1,22 @@
 import json
 import logging
 import random
-from . import create_app
+
 import requests
 from requests.exceptions import ConnectionError
 import wikipedia
 
 from config import Config
 from flask import url_for, request, render_template, flash, jsonify
+from flask import Flask
+
+
+def create_app(config_class):
+    app = Flask(__name__)
+    app.config.from_object(config_class)
+
+    return app
+
 
 app = create_app(Config)
 
