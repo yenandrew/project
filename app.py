@@ -40,6 +40,7 @@ def home():
     movie_data['wikipedia_url'] = wikipedia.page(title=f"{movie_data['title']}(film)", auto_suggest=True,
                                                  redirect=True, preload=False)
 
+
     return render_template('index.html', **movie_data)
 
 
