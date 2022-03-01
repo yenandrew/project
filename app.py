@@ -39,11 +39,6 @@ def get_data_from_tmdb(tmdb_id):
 
 
 @app.route('/')
-def index():
-    return jsonify('Hello World')
-
-
-@app.route('/movie')
 def home():
     """
     This route will display the movie detail
