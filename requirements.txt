@@ -1,6 +1,6 @@
 requests==2.27.1
 wikipedia==1.4.0
-Flask==2.0.3
+Flask==2.3.2
 Werkzeug==2.0.3
 python-dotenv==0.19.2
 Flask-SQLAlchemy==2.5.1
